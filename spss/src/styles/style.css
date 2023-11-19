@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*------------------------------- nav ----------------------------*/
+nav {
+    box-shadow: 0px 4px 4px #888888;
+}
+
+.navbar {
+    max-width: 1440px;
+    margin: auto;
+    padding: 20px;
+}
+
+nav div ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav div ul li, a {
+    color: #030391;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav div ul li:nth-child(2) a {
+    color: #1488D8;
+}
+/*------------------------------- end-nav ----------------------------*/
+
+/*------------------------------- container ----------------------------*/
+.container {
+    width: 100%;
+    margin: auto;
+}
+
+.container ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container ul li p {
+    font-family: 'Baloo Bhaijaan 2', sans-serif;
+    font-weight: bold;
+}
+
+.container ul li:nth-child(1) {
+    font-size: 64px;
+    margin-top: 50px;
+}
+
+.container ul li:nth-child(2) {
+    font-size: 40px;
+}
+
+.container ul li:nth-child(3) .get_file {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+}
+
+.container ul li:nth-child(3) .get_file .get_file_item1 {
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.container ul li:nth-child(3) .get_file .get_file_item1 a button {
+    background-color: #1488D8;
+    color: #FFFFFF;
+    width: 630px;
+    height: 130px;
+    border-radius: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Baloo Bhaijaan 2', sans-serif;
+    border-style: none;
+    cursor: pointer;
+}
+
+.container ul li:nth-child(3) .get_file .get_file_item2 button {
+    background-color: #D9D9D9;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    cursor: pointer;
+}
+
+.container ul li:nth-child(3) .get_file .get_file_item3 button {
+    background-color: #D9D9D9;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    cursor: pointer;
+}
+
+.container ul li:nth-child(4) {
+    font-size: 12px;
+    margin-top: 20px;
+}
+/*------------------------------- end-container ----------------------------*/
