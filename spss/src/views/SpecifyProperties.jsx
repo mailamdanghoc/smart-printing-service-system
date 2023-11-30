@@ -1,12 +1,13 @@
-import '../styles/SpecifyProperties.css';
+import React from 'react';
+import styles from '../styles/SpecifyProperties.module.css';
 import printer_icon from '../images/printer_icon.png';
 import logo_hcmut from '../images/logo_hcmut.png';
-
+import { Outlet, Link } from "react-router-dom";
 function SpecifyProperties() {
   return (
     <body>
       <nav>
-        <div class="navbar">
+        <div className={styles.navbar}>
           <ul>
             <li>
               <a href="#"
@@ -25,18 +26,18 @@ function SpecifyProperties() {
         </div>
       </nav>
 
-      <div class="container">
-        <div class="properties">
+      <div className={styles.container}>
+        <div className={styles.properties}>
           <ul>
             <li>
-              <a href="UploadDocument.html"><button>Quay lại</button></a>
+              <Link to ='/upload-document'><button>Quay lại</button></Link>
             </li>
             <li><p>Chọn lựa vị trí in</p></li>
             <li>
               <select name="places" id="places" required>
                 <option value="Chọn vị trí" selected>Chọn vị trí</option>
-                <option value="Thư viên A2 CS1">Thư viên A2 CS1</option>
-                <option value="Thư viện BK.B1 CS2">Thư viên BK.B1 CS2</option>
+                <option value="Thư viên A2 CS1">Thư viện A2 CS1</option>
+                <option value="Thư viện BK.B1 CS2">Thư viện BK.B1 CS2</option>
               </select>
             </li>
             <li><p>Số tờ</p></li>
@@ -87,13 +88,13 @@ function SpecifyProperties() {
               <p>Số giấy tiêu hao: <span>10 tờ</span></p>
             </li>
             <li>
-              <a href="ChoosePrinter.html"><button>Xác nhận</button></a>
+              <Link to ='/choose-printer'><button>Xác nhận</button></Link>
             </li>
             <li><p>Nhấn xác nhận sẽ chuyển sang phần chọn máy in</p></li>
           </ul>
         </div>
 
-        <div class="paper"></div>
+        <div className={styles.paper}></div>
       </div>
     </body>
   );

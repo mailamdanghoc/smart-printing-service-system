@@ -1,12 +1,13 @@
-import '../styles/PayOrder.css';
+import React from 'react';
+import styles from '../styles/PayOrder.module.css';
 import logo_hcmut from '../images/logo_hcmut.png';
 import logo_bk from '../images/logo_bk.png';
-
+import { Outlet, Link } from "react-router-dom";
 function PayOrder() {
   return (
     <body>
       <nav>
-        <div class="navbar">
+        <div className={styles.navbar}>
           <ul>
             <li>
               <a href="#"
@@ -25,12 +26,12 @@ function PayOrder() {
         </div>
       </nav>
 
-      <div class="container">
-        <div><p>Cảm ơn bạn đã sử dụng dịch vụ!</p></div>
-        <div><p>Vui lòng xuất trình phiếu khi lấy đơn</p></div>
-        <div class="area">
-          <div class="info">
-            <div id="information">
+      <div className={styles.container}>
+        <div><h1>Cảm ơn bạn đã sử dụng dịch vụ!</h1></div>
+        <div><h2>Vui lòng xuất trình phiếu khi lấy đơn</h2></div>
+        <div className={styles.area}>
+          <div className={styles.info}>
+            <div id={styles.information}>
               <p>Dịch vụ in ấn thông minh trường Đại học Bách Khoa</p>
               <p>
                 <i style={{ fontFamily: 'Times New Roman, Times, serif' }}
@@ -52,9 +53,9 @@ function PayOrder() {
               />
             </div>
           </div>
-          <div class="confirm">
-            <div><p id="label">Phiếu xác nhận</p></div>
-            <div id="confirmation">
+          <div className={styles.confirm}>
+            <div><p id={styles.label}>Phiếu xác nhận</p></div>
+            <div id={styles.confirmation}>
               <div>
                 <ul>
                   <li><p>Mã đơn in</p></li>
@@ -75,14 +76,14 @@ function PayOrder() {
               </div>
             </div>
           </div>
-          <div class="time"><p>Thời gian đặt hàng: 3h00 - 30.10.2023</p></div>
+          <div className={styles.time}><p>Thời gian đặt hàng: 3h00 - 30.10.2023</p></div>
         </div>
-        <div class="btn-gr1">
+        <div className={styles.btnGr1}>
           <div><button>Tải phiếu</button></div>
           <div><button>Lấy liên kết</button></div>
           <div><button>Gửi qua mail</button></div>
         </div>
-        <div class="btn-gr2">
+        <div className={styles.btnGr2}>
           <div>
             <a href="../index.html"><button>Tiếp tục in đơn mới</button></a>
           </div>

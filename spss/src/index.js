@@ -1,16 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-// import ChoosePrinter from './views/ChoosePrinter';
-// import PayOrder from './views/PayOrder';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import './index.css';
+import ChoosePrinter from './views/ChoosePrinter';
+import PayOrder from './views/PayOrder';  
 import UploadDocument from './views/UploadDocument';
+import SpecifyProperties from './views/SpecifyProperties';
+import HomePage from './views/HomePage';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <UploadDocument />
-  </React.StrictMode>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/choose-printer" element={<ChoosePrinter />} />
+      <Route path="/pay-order" element={<PayOrder />} />
+      <Route path="/upload-document" element={<UploadDocument />} />
+      <Route path="/specify-properties" element={<SpecifyProperties />} />
+    </Routes>
+    </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

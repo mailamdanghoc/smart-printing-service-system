@@ -1,13 +1,16 @@
-import '../styles/ChoosePrinter.css';
-import choosePrinterStage from '../modules/choosePrinterStage.js';
+import React from 'react';
+import style from '../styles/ChoosePrinter.module.css';
+import { Outlet, Link } from "react-router-dom";
+// import choosePrinterStage from '../modules/choosePrinterStage.js';
 import printer_icon from '../images/printer_icon.png';
 import logo_hcmut from '../images/logo_hcmut.png';
+import choosePrinterStage from '../modules/choosePrinterStage.js';
 
 function ChoosePrinter() {
   return (
     <body>
       <nav>
-        <div className="navbar">
+        <div className={style.navbar}>
           <ul>
             <li>
               <a href="#">
@@ -27,70 +30,70 @@ function ChoosePrinter() {
         </div>
       </nav>
 
-      <div class="container">
-        <div class="back_btn">
-          <a href="SpecifyProperties.html"><button>Quay lại</button></a>
+      <div className={style.container}>
+        <div className={style.back_btn}>
+          <Link to = '/specify-properties'><button>Quay lại</button></Link>
         </div>
-        <div class="content">
-          <div class="item">
-            <div class="image" id="free">
+        <div className={style.content}>
+          <div className={style.item}>
+            <div className={style.image} id="free">
               <img src={printer_icon} alt="printer-img" />
             </div>
-            <div class="label">Máy in màu Epson L121</div>
+            <div className={style.label}>Máy in màu Epson L121</div>
           </div>
-          <div class="item" id="busy">
-            <div class="image">
+          <div className={style.item} id="busy">
+            <div className={style.image}>
               <img src={printer_icon} alt="printer-img" />
             </div>
-            <div class="label">Máy in màu Epson L121</div>
+            <div className={style.label}>Máy in màu Epson L121</div>
           </div>
-          <div class="item" id="unvailable">
-            <div class="image">
+          <div className={style.item} id="unvailable">
+            <div className={style.image}>
               <img src={printer_icon} alt="printer-img" />
             </div>
-            <div class="label">Máy in màu Epson L121</div>
+            <div className={style.label}>Máy in màu Epson L121</div>
           </div>
-          <div class="item">
-            <div class="image">
+          <div className={style.item}>
+            <div className={style.image}>
               <img src={printer_icon} alt="printer-img" />
             </div>
-            <div class="label">Máy in màu Epson L121</div>
+            <div className={style.label}>Máy in màu Epson L121</div>
           </div>
-          <div class="item">
-            <div class="image">
+          <div className={style.item}>
+            <div className={style.image}>
               <img src={printer_icon} alt="printer-img" />
             </div>
-            <div class="label">Máy in màu Epson L121</div>
+            <div className={style.label}>Máy in màu Epson L121</div>
           </div>
-          <div class="item">
-            <div class="image">
+          <div className={style.item}>
+            <div className={style.image}>
               <img src={printer_icon} alt="printer-img" />
             </div>
-            <div class="label">Máy in màu Epson L121</div>
+            <div className={style.label}>Máy in màu Epson L121</div>
           </div>
-          <div class="item">
-            <div class="image">
+          <div className={style.item}>
+            <div className={style.image}>
               <img src={printer_icon} alt="printer-img" />
             </div>
-            <div class="label">Máy in màu Epson L121</div>
+            <div className={style.label}>Máy in màu Epson L121</div>
           </div>
-          <div class="item">
-            <div class="image">
+          <div className={style.item}>
+            <div className={style.image}>
               <img src={printer_icon} alt="printer-img" />
             </div>
-            <div class="label">Máy in màu Epson L121</div>
+            <div className={style.label}>Máy in màu Epson L121</div>
           </div>
 
-          <div class="printer_info_free">
-            <div class="temp">
-              <div class="name_and_img">
+          <div className={style.printer_info_free}>
+            <div className={style.temp}>
+              <div className={style.name_and_img}>
                 <div id="name">Máy in màu Epson L121</div>
                 <div id="img">
                   <img src={printer_icon} alt="printer-img" />
                 </div>
               </div>
 
-              <div class="info">
+              <div className={style.info}>
                 <div>
                   <p>Tình trạng: <span>Trống</span></p>
                 </div>
@@ -107,16 +110,16 @@ function ChoosePrinter() {
             </div>
           </div>
 
-          <div class="printer_info_busy">
-            <div class="temp">
-              <div class="name_and_img">
+          <div className={style.printer_info_busy}>
+            <div className={style.temp}>
+              <div className={style.name_and_img}>
                 <div id="name">Máy in màu Epson L121</div>
                 <div id="img">
                   <img src={printer_icon} alt="printer-img" />
                 </div>
               </div>
 
-              <div class="info">
+              <div className={style.info}>
                 <div>
                   <p>Tình trạng: <span>Đang in</span></p>
                 </div>
@@ -135,16 +138,16 @@ function ChoosePrinter() {
             </div>
           </div>
 
-          <div class="printer_info_unavailable">
-            <div class="temp">
-              <div class="name_and_img">
+          <div className={style.printer_info_unavailable}>
+            <div className={style.temp}>
+              <div className={style.name_and_img}>
                 <div id="name">Máy in màu Epson L121</div>
                 <div id="img">
                   <img src={printer_icon} alt="printer-img" />
                 </div>
               </div>
 
-              <div class="info">
+              <div className={style.info}>
                 <div>
                   <p>Tình trạng: <span>Bảo trì</span></p>
                 </div>

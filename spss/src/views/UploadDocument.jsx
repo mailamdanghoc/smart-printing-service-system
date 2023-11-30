@@ -1,7 +1,8 @@
-import '../styles/UploadDocument.css';
+import React from 'react';
+import '../styles/UploadDocument.module.css';
 import logo_hcmut from '../images/logo_hcmut.png';
 import capstone from '../images/Capstone_Project_hk231_2023_v3.png';
-
+import { Outlet, Link } from "react-router-dom";
 function UploadDocument() {
   return (
 <body>
@@ -27,7 +28,7 @@ function UploadDocument() {
 
     <div class="container">
       <div class="back_btn">
-        <a href="../index.html"><button>Quay lại</button></a>
+        <Link to = '/'><button>Quay lại</button></Link>
       </div>
       <div class="content">
         <ul>
@@ -50,7 +51,7 @@ function UploadDocument() {
           </li>
           <li><p>kéo thả tệp vào đây</p></li>
           <li>
-            <a href="SpecifyProperties.html"><button>Xác nhận</button></a>
+            <Link to = '/specify-properties'><button>Xác nhận</button></Link>
           </li>
         </ul>
       </div>
