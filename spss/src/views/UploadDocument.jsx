@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/UploadDocument.module.css';
+import styles from '../styles/UploadDocument.module.css';
 import logo_hcmut from '../images/logo_hcmut.png';
 import capstone from '../images/Capstone_Project_hk231_2023_v3.png';
 import { Outlet, Link } from "react-router-dom";
@@ -7,7 +7,7 @@ function UploadDocument() {
   return (
 <body>
     <nav>
-      <div class="navbar">
+      <div className={styles.navbar}>
         <ul>
           <li>
             <a href="#"
@@ -26,24 +26,24 @@ function UploadDocument() {
       </div>
     </nav>
 
-    <div class="container">
-      <div class="back_btn">
+    <div className={styles.container}>
+      <div className={styles.back_btn}>
         <Link to = '/'><button>Quay lại</button></Link>
       </div>
-      <div class="content">
+      <div className={styles.content}>
         <ul>
           <li><p>Tải file</p></li>
           <li>
-            <div id="area">
-              <div id="file">
-                <div id="image">
+            <div id={styles.area}>
+              <div id={styles.file}>
+                <div id={styles.image}>
                   <img
                     src={capstone}
                     alt="file_image"
                     style={{ width: '200px', height: '100%' }}
                   />
                 </div>
-                <div id="label">
+                <div id={styles.label}>
                   <p>Capstone_Project_hk231_2023_v3.pdf</p>
                 </div>
               </div>
