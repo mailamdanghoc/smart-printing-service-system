@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/styles.css';
 import logo_hcmut from '../images/logo_hcmut.png';
+import drive from '../images/drive.png'
 import { Outlet, Link } from "react-router-dom";
 function HomePage() {
     return (
@@ -39,7 +40,7 @@ function HomePage() {
                                 ><button>
                                         <img
                                             style={{ width: '35.5px', height: '20px' }}
-                                            src="images/drive.png"
+                                            src={drive}
                                             alt="drive"
                                         /></button></a>
                             </div>

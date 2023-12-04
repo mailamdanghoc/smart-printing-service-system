@@ -44,7 +44,7 @@ nav div ul li:nth-child(2) a {
 /*------------------------------- container ----------------------------*/
 .container {
     display: grid;
-    grid-template-columns: 530px auto;  
+    grid-template-columns: 350px auto;  
 }
 
 /*------------------------------- properties ----------------------------*/
