@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;700&display=swap);
+
 * {
     margin: 0;
     padding: 0;
@@ -31,7 +32,8 @@ nav div ul {
     align-items: center;
 }
 
-nav div ul li, a {
+nav div ul li,
+a {
     color: #030391;
     font-size: 20px;
     font-weight: bold;
@@ -40,6 +42,7 @@ nav div ul li, a {
 nav div ul li:nth-child(2) a {
     color: #1488D8;
 }
+
 /*------------------------------- end-nav ----------------------------*/
 
 /*------------------------------- container ----------------------------*/
@@ -47,6 +50,7 @@ nav div ul li:nth-child(2) a {
     width: 100%;
     margin: auto;
 }
+
 /*------------------------------- back-btn ----------------------------*/
 .container .back_btn a button {
     font-family: 'Baloo Bhaijaan 2', sans-serif;
@@ -62,6 +66,7 @@ nav div ul li:nth-child(2) a {
     margin-top: 10px;
     cursor: pointer;
 }
+
 /*------------------------------- end-back-btn ----------------------------*/
 
 /*------------------------------- content ----------------------------*/
@@ -95,7 +100,7 @@ nav div ul li:nth-child(2) a {
     justify-content: center;
     align-items: center;
     margin-bottom: 5px;
-    background-color: #E8E8E8; 
+    background-color: #E8E8E8;
     cursor: pointer;
 }
 
@@ -106,7 +111,7 @@ nav div ul li:nth-child(2) a {
 }
 
 /*------------------------------- printer-info-free ----------------------------*/
-.printer_info_free {
+.printer_info_show {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -120,7 +125,7 @@ nav div ul li:nth-child(2) a {
     display: none;
 }
 
-.printer_info_free .temp {
+.printer_info_show .temp {
     width: 500px;
     background-color: #FFFFFF;
     border: 2px solid #1488D8;
@@ -130,44 +135,43 @@ nav div ul li:nth-child(2) a {
     padding: 10px;
 }
 
-.printer_info_free .temp .name_and_img {
+.printer_info_show .temp .name_and_img {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
-.printer_info_free .temp .name_and_img #name {
+.printer_info_show .temp .name_and_img #name {
     font-family: 'Baloo Bhaijaan 2', sans-serif;
     font-size: 20px;
     font-weight: bold;
 }
 
-.printer_info_free .temp .name_and_img #img {
+.printer_info_show .temp .name_and_img #img {
     border: 1px solid #030391;
     border-radius: 10px;
     padding: 10px;
 }
 
-.printer_info_free .temp .info {
+.printer_info_show .temp .info {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
 }
 
-.printer_info_free .temp .info div p {
+.printer_info_show .temp .info div p {
     font-family: 'Baloo Bhaijaan 2', sans-serif;
     font-size: 20px;
     font-weight: bold;
 }
 
-.printer_info_free .temp .info div:nth-child(1) p span {
+.printer_info_show .temp .info div:nth-child(1) p span {
     font-family: 'Baloo Bhaijaan 2', sans-serif;
-    color: #50ED86;
 }
 
-.printer_info_free .temp .info div:nth-child(7) button {
+.printer_info_show .temp .info div:nth-child(7) button {
     font-family: 'Baloo Bhaijaan 2', sans-serif;
     padding: 5px;
     border-style: none;
@@ -177,110 +181,20 @@ nav div ul li:nth-child(2) a {
     width: 90px;
 }
 
-.printer_info_free .temp .info div:nth-child(7) a:nth-child(1) button {
+.printer_info_show .temp .info div:nth-child(7) a:nth-child(1) button {
     color: #FFFFFF;
     background-color: #BFBFBF;
     margin-right: 5px;
     cursor: pointer;
 }
 
-.printer_info_free .temp .info div:nth-child(7) a:nth-child(2) button {
+.printer_info_show .temp .info div:nth-child(7) a:nth-child(2) button {
     color: #FFFFFF;
     background-color: #1488D8;
     cursor: pointer;
 }
+
 /*------------------------------- end-printer-info-free ----------------------------*/
-
-/*------------------------------- printer-info-busy ----------------------------*/
-.printer_info_busy {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    display: none;
-}
-
-.printer_info_busy .temp {
-    width: 500px;
-    background-color: #FFFFFF;
-    border: 2px solid #1488D8;
-    border-radius: 10px;
-    display: grid;
-    grid-template-columns: auto auto;
-    padding: 10px;
-}
-
-.printer_info_busy .temp .name_and_img {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.printer_info_busy .temp .name_and_img #name {
-    font-family: 'Baloo Bhaijaan 2', sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.printer_info_busy .temp .name_and_img #img {
-    border: 1px solid #030391;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.printer_info_busy .temp .info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.printer_info_busy .temp .info div p {
-    font-family: 'Baloo Bhaijaan 2', sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.printer_info_busy .temp .info div:nth-child(1) p span {
-    font-family: 'Baloo Bhaijaan 2', sans-serif;
-    color: #E6A62A;
-}
-
-.printer_info_busy .temp .info div:nth-child(2) p span {
-    font-family: 'Baloo Bhaijaan 2', sans-serif;
-    color: #E6A62A;
-}
-
-.printer_info_busy .temp .info div:nth-child(7) button {
-    font-family: 'Baloo Bhaijaan 2', sans-serif;
-    padding: 5px;
-    border-style: none;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 15px;
-    width: 90px;
-}
-
-.printer_info_busy .temp .info div:nth-child(7) a:nth-child(1) button {
-    color: #FFFFFF;
-    background-color: #BFBFBF;
-    margin-right: 5px;
-    cursor: pointer;
-}
-
-.printer_info_busy .temp .info div:nth-child(7) a:nth-child(2) button {
-    color: #FFFFFF;
-    background-color: #1488D8;
-    cursor: pointer;
-}
-/*------------------------------- end-printer-info-busy ----------------------------*/
 
 /*------------------------------- printer-info-unavailable ----------------------------*/
 .printer_info_unavailable {
@@ -341,11 +255,11 @@ nav div ul li:nth-child(2) a {
 
 .printer_info_unavailable .temp .info div:nth-child(1) p span {
     font-family: 'Baloo Bhaijaan 2', sans-serif;
-    color: #FF0000;
+    color: #001aff;
 }
 
 .printer_info_unavailable .temp .info div:nth-child(7) p {
-    color: #FF0000;
+    color: #00ffbf;
     font-size: 12px;
 }
 
@@ -360,6 +274,7 @@ nav div ul li:nth-child(2) a {
     border-radius: 10px;
     font-weight: bold;
 }
+
 /*------------------------------- end-printer-info-unavailable ----------------------------*/
 /*------------------------------- end-content ----------------------------*/
 /*------------------------------- end-container ----------------------------*/

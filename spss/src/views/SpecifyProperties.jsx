@@ -3,6 +3,9 @@ import styles from '../styles/SpecifyProperties.module.css';
 import printer_icon from '../images/printer_icon.png';
 import logo_hcmut from '../images/logo_hcmut.png';
 import { Outlet, Link } from "react-router-dom";
+import '../modules/specifyProperties.js';
+
+
 function SpecifyProperties() {
   return (
     <body>
