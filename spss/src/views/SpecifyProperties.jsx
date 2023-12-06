@@ -6,8 +6,81 @@ import capstone from '../images/Capstone_Project_hk231_2023_v3.png';
 import { Outlet, Link } from "react-router-dom";
 import '../modules/specifyProperties.js';
 
+export const orderData = [
+  {
+    orderID: "1",
+    paymentID: "4",
+    printerID: "0xx",
+    numberofPage: "",
+    place: "",
+    size: "",
+    layout: "",
+    pageSelection: "",
+    side: "",
+    totalPage: "",
+  },
+];
 
 function SpecifyProperties() {
+  const [selectedPlace, setSelectedPlace] = React.useState("");
+  const [selectedSize, setSelectedSize] = React.useState("");
+  const [numberOfPages, setNumberOfPages] = React.useState("");
+  const [numberOfSheetInPage, setNumberOfSheetInPage] = React.useState("");
+  const [selectedLayout, setSelectedLayout] = React.useState("");
+  const [selectedPage, setSelectedPage] = React.useState("");
+  const [selectedSide, setSelectedSide] = React.useState("");
+
+  const handlePlaceChange = (event) => {
+    setSelectedPlace(event.target.value);
+    orderData[0].place = event.target.value; // Update the place in orderData
+  };
+
+  const handleSizeChange = (event) => {
+    setSelectedSize(event.target.value);
+    orderData[0].size = event.target.value; // Update the size in orderData
+  };
+  const handleNumberOfPagesChange = (event) => {
+    setNumberOfPages(event.target.value);
+    orderData[0].numberofPage = event.target.value; // Update the numberofPage in orderData
+  };
+
+  const handleNumberOfSheetInPage = (event) => {
+    setNumberOfSheetInPage(event.target.value);
+    orderData[0].numberofPage = event.target.value; // Update the numberofPage in orderData
+  };
+
+  const handleLayoutChange = (event) => {
+    setSelectedLayout(event.target.value);
+    orderData[0].place = event.target.value; // Update the place in orderData
+  };
+
+  const handlePageChange = (event) => {
+    setSelectedPage(event.target.value);
+    orderData[0].pageSelection = event.target.value; // Update the pageSelection in orderData
+  };
+
+  const handlePageSide = (event) => {
+    setSelectedSide(event.target.value);
+    orderData[0].pageSelection = event.target.value; // Update the pageSelection in orderData
+  };
+
+  const [totalPages, setTotalPages] = React.useState(0);
+
+  const calculateTotalPages = () => {
+    let total = 0;
+    if (selectedSide === 'one-sided') {
+      total = numberOfPages;
+    } else if (selectedSide === 'two-sided') {
+      total = Math.ceil(numberOfPages / 2);
+    }
+    setTotalPages(total);
+    orderData[0].totalPage = total;
+  };
+
+  React.useEffect(() => {
+    calculateTotalPages();
+  }, [numberOfPages, selectedSide]);
+
   return (
     <body>
       <nav>
@@ -33,21 +106,22 @@ function SpecifyProperties() {
         <div className={styles.properties}>
           <ul>
             <li>
-              <Link to ='/upload-document'><button>Quay lại</button></Link>
+              <Link to='/upload-document'><button>Quay lại</button></Link>
             </li>
             <li><p>Chọn lựa vị trí in</p></li>
             <li>
-              <select name="places" id="places" required>
+              <select name="places" id="places" required onChange={handlePlaceChange}>
                 <option value="Chọn vị trí" selected>Chọn vị trí</option>
-                <option value="Thư viên A2 CS1">Thư viện A2 CS1</option>
+                <option value="Thư viện A2 CS1">Thư viện A2 CS1</option>
                 <option value="Thư viện BK.B1 CS2">Thư viện BK.B1 CS2</option>
               </select>
             </li>
             <li><p>Số tờ</p></li>
-            <li><input type="text" placeholder="Nhập số tờ" /></li>
+            <li><input type="text" placeholder="Nhập số tờ" value={numberOfPages}
+              onChange={handleNumberOfPagesChange} /></li>
             <li><p>Bố cục</p></li>
             <li>
-              <select name="layout" id="layout" required>
+              <select name="layout" id="layout" required onChange={handleLayoutChange}>
                 <option value="Layout" selected>Layout</option>
                 <option value="por">Portrait</option>
                 <option value="land">Landscape</option>
@@ -55,20 +129,20 @@ function SpecifyProperties() {
             </li>
             <li><p>Chọn trang cần in</p></li>
             <li>
-              <input type="radio" id="even" name="page" /><label for="even"
+              <input type="radio" id="even" name="page" value="even" onChange={handlePageChange} /><label for="even"
               >Chỉ trang chẵn</label>
             </li>
             <li>
-              <input type="radio" id="odd" name="page" /><label for="odd"
+              <input type="radio" id="odd" name="page" value="odd" onChange={handlePageChange} /><label for="odd"
               >Chỉ trang lẻ</label>
             </li>
             <li>
-              <input type="radio" id="all" name="page" /><label for="all"
+              <input type="radio" id="all" name="page" value="all" onChange={handlePageChange} /><label for="all"
               >Tất cả</label>
             </li>
             <li><p>Chọn khổ giấy</p></li>
             <li>
-              <select name="size" id="size" required>
+              <select name="size" id="size" required onChange={handleSizeChange}>
                 <option value="size" selected>Size</option>
                 <option value="A3">A3</option>
                 <option value="A4">A4</option>
@@ -76,22 +150,23 @@ function SpecifyProperties() {
               </select>
             </li>
             <li><p>Số trang trong một tờ</p></li>
-            <li><input type="text" placeholder="Nhập số trang" /></li>
+            <li><input type="text" placeholder="Nhập số trang" value={numberOfSheetInPage}
+              onChange={handleNumberOfSheetInPage} /></li>
             <li>
-              <input type="radio" id="one-side" name="side" /><label
+              <input type="radio" id="one-side" name="side" value="one-sided" onChange={handlePageSide} /><label
                 for="one-side"
               >In 1 mặt</label>
             </li>
             <li>
-              <input type="radio" id="two-side" name="side" /><label
+              <input type="radio" id="two-side" name="side" value="two-sided" onChange={handlePageSide} /><label
                 for="two-side"
               >In 2 mặt</label>
             </li>
             <li>
-              <p>Số giấy tiêu hao: <span>10 tờ</span></p>
+              <p>Số giấy tiêu hao: <span>{orderData[0].totalPage}</span></p>
             </li>
             <li>
-              <Link to ='/choose-printer'><button>Xác nhận</button></Link>
+              <Link to='/choose-printer'><button>Xác nhận</button></Link>
             </li>
             <li><p>Nhấn xác nhận sẽ chuyển sang phần chọn máy in</p></li>
           </ul>

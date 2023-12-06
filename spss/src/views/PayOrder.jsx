@@ -2,7 +2,9 @@ import React from 'react';
 import styles from '../styles/PayOrder.module.css';
 import logo_hcmut from '../images/logo_hcmut.png';
 import logo_bk from '../images/logo_bk.png';
+import { orderData } from './SpecifyProperties.jsx';
 import { Outlet, Link } from "react-router-dom";
+
 function PayOrder() {
   return (
     <body>
@@ -62,15 +64,21 @@ function PayOrder() {
                   <li><p>Mã mãy in</p></li>
                   <li><p>Số lượng giấy in</p></li>
                   <li><p>Dự kiến lấy đơn</p></li>
+                  <li><p>Nơi lấy</p></li>
                 </ul>
               </div>
               <div>
                 <ul>
-                  <li><p>0x00</p></li>
-                  <li><p>HCMUT00000XX</p></li>
-                  <li><p>0x01</p></li>
-                  <li><p>10</p></li>
-                  <li><p>12h61 - 31.10.2023</p></li>
+                  {orderData.map((order, index) => (
+                    <div key={index}>
+                      <li><p>{order.orderID}</p></li>
+                      <li><p>{order.paymentID}</p></li>
+                      <li><p>{order.printerID}</p></li>
+                      <li><p>{order.totalPage}</p></li>
+                      <li><p>{order.place}</p></li>
+                      <li><p>12h61 - 31.10.2023</p></li>
+                    </div>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -84,13 +92,13 @@ function PayOrder() {
         </div>
         <div className={styles.btnGr2}>
           <div>
-            <Link to = '/'><button>Tiếp tục in đơn mới</button></Link>
+            <Link to='/'><button>Tiếp tục in đơn mới</button></Link>
           </div>
           <div><button>Xem lịch sử in</button></div>
           <div><button>Liên hệ với chúng tôi</button></div>
         </div>
       </div>
     </body>
-    );
+  );
 }
 export default PayOrder;
