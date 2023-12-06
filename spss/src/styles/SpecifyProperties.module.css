@@ -44,7 +44,7 @@ nav div ul li:nth-child(2) a {
 /*------------------------------- container ----------------------------*/
 .container {
     display: grid;
-    grid-template-columns: 530px auto;  
+    grid-template-columns: 350px auto;  
 }
 
 /*------------------------------- properties ----------------------------*/
@@ -182,6 +182,10 @@ nav div ul li:nth-child(2) a {
 .container .paper {
     background-color: #d9d9d9;
     z-index: -99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 /*------------------------------- end-paper ----------------------------*/
 /*------------------------------- end-container ----------------------------*/

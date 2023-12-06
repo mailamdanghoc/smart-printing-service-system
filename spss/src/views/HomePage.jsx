@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/styles.css';
 import logo_hcmut from '../images/logo_hcmut.png';
+import drive from '../images/drive.png'
 import { Outlet, Link } from "react-router-dom";
 function HomePage() {
     return (
@@ -9,18 +10,17 @@ function HomePage() {
                 <div class="navbar">
                     <ul>
                         <li>
-                            <a href="#"
+                            <Link to='/'
                             ><img
                                     style={{ width: '500px' }}
                                     src={logo_hcmut}
                                     alt="logo_hcmut"
-                                /></a>
+                                /></Link>
                         </li>
-                        <li><a href="#">TẠO ĐƠN IN</a></li>
+                        <li><Link to='/'>TẠO ĐƠN IN</Link></li>
                         <li><a href="#">XEM LỊCH SỬ</a></li>
                         <li><a href="#">THANH TOÁN</a></li>
-                        <li><a href="#">ĐĂNG NHẬP</a></li>
-                        <li><a href="#">ĐĂNG KÝ</a></li>
+                        <li><a href='/login'>ĐĂNG NHẬP</a></li>
                     </ul>
                 </div>
             </nav>
@@ -39,7 +39,7 @@ function HomePage() {
                                 ><button>
                                         <img
                                             style={{ width: '35.5px', height: '20px' }}
-                                            src="images/drive.png"
+                                            src={drive}
                                             alt="drive"
                                         /></button></a>
                             </div>

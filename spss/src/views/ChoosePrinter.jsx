@@ -66,19 +66,18 @@ export default function ChoosePrinter() {
         <div className={style.navbar}>
           <ul>
             <li>
-              <a href="#">
+              <Link to='/'>
                 <img
                   style={{ width: '500px' }}
                   src={logo_hcmut}
                   alt="logo_hcmut"
                 />
-              </a>
+              </Link>
             </li>
-            <li><a href="#">TẠO ĐƠN IN</a></li>
+            <li><Link to='/'>TẠO ĐƠN IN</Link></li>
             <li><a href="#">XEM LỊCH SỬ</a></li>
             <li><a href="#">THANH TOÁN</a></li>
-            <li><a href="#">ĐĂNG NHẬP</a></li>
-            <li><a href="#">ĐĂNG KÝ</a></li>
+            <li><Link to='/login'>ĐĂNG NHẬP</Link></li>
           </ul>
         </div>
       </nav>
@@ -102,7 +101,7 @@ export default function ChoosePrinter() {
               <div className={style.temp}>
                 <div className={style.name_and_img}>
                   <div id={style.name}>Máy in màu Epson L121</div>
-                  <div id="img">
+                  <div id={style.img}>
                     <img src={printer_icon} alt="printer-img" />
                   </div>
                 </div>

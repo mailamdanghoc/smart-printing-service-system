@@ -7,12 +7,14 @@ import PayOrder from './views/PayOrder';
 import UploadDocument from './views/UploadDocument';
 import SpecifyProperties from './views/SpecifyProperties';
 import HomePage from './views/HomePage';
+import Login from './views/Login'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
     <Routes>
+      <Route path="/login" element={<Login />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/choose-printer" element={<ChoosePrinter />} />
       <Route path="/pay-order" element={<PayOrder />} />
