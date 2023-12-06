@@ -10,18 +10,17 @@ function PayOrder() {
         <div className={styles.navbar}>
           <ul>
             <li>
-              <a href="#"
+              <Link to='/'
               ><img
                   style={{ width: '500px' }}
                   src={logo_hcmut}
                   alt="logo_hcmut"
-                /></a>
+                /></Link>
             </li>
-            <li><a href="#">TẠO ĐƠN IN</a></li>
+            <li><Link to='/'>TẠO ĐƠN IN</Link></li>
             <li><a href="#">XEM LỊCH SỬ</a></li>
             <li><a href="#">THANH TOÁN</a></li>
-            <li><a href="#">ĐĂNG NHẬP</a></li>
-            <li><a href="#">ĐĂNG KÝ</a></li>
+            <li><Link to='/login'>ĐĂNG NHẬP</Link></li>
           </ul>
         </div>
       </nav>
@@ -85,7 +84,7 @@ function PayOrder() {
         </div>
         <div className={styles.btnGr2}>
           <div>
-            <a href="../index.html"><button>Tiếp tục in đơn mới</button></a>
+            <Link to = '/'><button>Tiếp tục in đơn mới</button></Link>
           </div>
           <div><button>Xem lịch sử in</button></div>
           <div><button>Liên hệ với chúng tôi</button></div>

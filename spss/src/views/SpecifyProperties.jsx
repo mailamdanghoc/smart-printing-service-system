@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../styles/SpecifyProperties.module.css';
 import printer_icon from '../images/printer_icon.png';
 import logo_hcmut from '../images/logo_hcmut.png';
+import capstone from '../images/Capstone_Project_hk231_2023_v3.png';
 import { Outlet, Link } from "react-router-dom";
 import '../modules/specifyProperties.js';
 
@@ -13,18 +14,17 @@ function SpecifyProperties() {
         <div className={styles.navbar}>
           <ul>
             <li>
-              <a href="#"
+              <Link to='/'
               ><img
                   style={{ width: '500px' }}
                   src={logo_hcmut}
                   alt="logo_hcmut"
-                /></a>
+                /></Link>
             </li>
-            <li><a href="#">TẠO ĐƠN IN</a></li>
+            <li><Link to='/'>TẠO ĐƠN IN</Link></li>
             <li><a href="#">XEM LỊCH SỬ</a></li>
             <li><a href="#">THANH TOÁN</a></li>
-            <li><a href="#">ĐĂNG NHẬP</a></li>
-            <li><a href="#">ĐĂNG KÝ</a></li>
+            <li><Link to='/login'>ĐĂNG NHẬP</Link></li>
           </ul>
         </div>
       </nav>
@@ -97,7 +97,11 @@ function SpecifyProperties() {
           </ul>
         </div>
 
-        <div className={styles.paper}></div>
+        <div className={styles.paper}>
+          <div className={styles.document}>
+            <img src={capstone} alt="document" />
+          </div>
+        </div>
       </div>
     </body>
   );

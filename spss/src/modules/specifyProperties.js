@@ -16,7 +16,7 @@ function specifyProperties() {
     savePrintOptions(printOptions);
 
     // Đóng modal
-    $('#printOptionsModal').modal('hide');
+    // ('#printOptionsModal').modal('hide');
 }
 
 // Hàm gửi lên server để lưu vào dtb
