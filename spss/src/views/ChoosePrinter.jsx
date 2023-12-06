@@ -14,41 +14,41 @@ export default function ChoosePrinter() {
     setSelectedPrinter(printer);
   }
   const printerData = [
-    { id: "1", state: "busy", label: "Máy in màu Epson L121" },
-    { id: "2", state: "unavailable", label: "Máy in màu Epson L121" },
-    { id: "3", state: "free", label: "Máy in màu Epson L121" },
-    { id: "4", state: "free", label: "Máy in màu Epson L121" },
-    { id: "5", state: "free", label: "Máy in màu Epson L121" },
-    { id: "6", state: "unavailable", label: "Máy in màu Epson L121" },
-    { id: "7", state: "busy", label: "Máy in màu Epson L121" },
-    { id: "8", state: "unavailable", label: "Máy in màu Epson L121" },
-    { id: "9", state: "free", label: "Máy in màu Epson L121" },
-    { id: "10", state: "free", label: "Máy in màu Epson L121" },
-    { id: "11", state: "free", label: "Máy in màu Epson L121" },
-    { id: "12", state: "unavailable", label: "Máy in màu Epson L121" },
-    { id: "13", state: "busy", label: "Máy in màu Epson L121" },
-    { id: "14", state: "unavailable", label: "Máy in màu Epson L121" },
-    { id: "15", state: "free", label: "Máy in màu Epson L121" },
-    { id: "16", state: "free", label: "Máy in màu Epson L121" },
-    { id: "17", state: "free", label: "Máy in màu Epson L121" },
-    { id: "18", state: "unavailable", label: "Máy in màu Epson L121" },
-    { id: "19", state: "busy", label: "Máy in màu Epson L121" },
-    { id: "20", state: "unavailable", label: "Máy in màu Epson L121" },
+    { id: "1", status: "busy", label: "Máy in màu Epson L121" },
+    { id: "2", status: "unavailable", label: "Máy in màu Epson L121" },
+    { id: "3", status: "free", label: "Máy in màu Epson L121" },
+    { id: "4", status: "free", label: "Máy in màu Epson L121" },
+    { id: "5", status: "free", label: "Máy in màu Epson L121" },
+    { id: "6", status: "unavailable", label: "Máy in màu Epson L121" },
+    { id: "7", status: "busy", label: "Máy in màu Epson L121" },
+    { id: "8", status: "unavailable", label: "Máy in màu Epson L121" },
+    { id: "9", status: "free", label: "Máy in màu Epson L121" },
+    { id: "10", status: "free", label: "Máy in màu Epson L121" },
+    { id: "11", status: "free", label: "Máy in màu Epson L121" },
+    { id: "12", status: "unavailable", label: "Máy in màu Epson L121" },
+    { id: "13", status: "busy", label: "Máy in màu Epson L121" },
+    { id: "14", status: "unavailable", label: "Máy in màu Epson L121" },
+    { id: "15", status: "free", label: "Máy in màu Epson L121" },
+    { id: "16", status: "free", label: "Máy in màu Epson L121" },
+    { id: "17", status: "free", label: "Máy in màu Epson L121" },
+    { id: "18", status: "unavailable", label: "Máy in màu Epson L121" },
+    { id: "19", status: "busy", label: "Máy in màu Epson L121" },
+    { id: "20", status: "unavailable", label: "Máy in màu Epson L121" },
   ];
 
-  const getStateText = (state) => {
-    if (state === "busy") {
+  const getStatusText = (status) => {
+    if (status === "busy") {
       return "Bận";
-    } else if (state === "unavailable") {
+    } else if (status === "unavailable") {
       return "Không có sẵn";
-    } else if (state === "free") {
+    } else if (status === "free") {
       return "Trống";
     }
     return "";
   };
 
-  const getStateTextClass = (state) => {
-    switch (state) {
+  const getStatusTextClass = (status) => {
+    switch (status) {
       case "busy":
         return style["busy-text"];
       case "unavailable":
@@ -108,7 +108,7 @@ export default function ChoosePrinter() {
 
                 <div className={style.info}>
                   <div>
-                    <p>Tình trạng: <span className={style[getStateTextClass(selectedPrinter.state)]}>{getStateText(selectedPrinter.state)}</span></p>
+                    <p>Tình trạng: <span className={style[getStatusTextClass(selectedPrinter.status)]}>{getStatusText(selectedPrinter.status)}</span></p>
                   </div>
                   <div><p>Hàng đợi: 0</p></div>
                   <div><p>Loại: In màu</p></div>
