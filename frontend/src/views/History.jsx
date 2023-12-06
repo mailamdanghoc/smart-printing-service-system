@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css"
 import '../styles/History.module.css';
 import logo_hcmut from '../images/logo_hcmut.png';
 import vi from 'date-fns/locale/vi';
-import { LogTable } from "../../component";
+import LogTable from "../component/LogTable/logtable";
 import { Outlet, Link } from "react-router-dom";
 
 const hardcodedPrintingLogs = [
