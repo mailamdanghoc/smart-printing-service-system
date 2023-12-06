@@ -9,6 +9,7 @@ import SpecifyProperties from './views/SpecifyProperties';
 import HomePage from './views/HomePage';
 import Login from './views/Login'
 import HomeAdmin from './views/HomeAdmin'
+import History from './views/History'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,6 +23,7 @@ root.render(
       <Route path="/pay-order" element={<PayOrder />} />
       <Route path="/upload-document" element={<UploadDocument />} />
       <Route path="/specify-properties" element={<SpecifyProperties />} />
+      <Route path="/history" element={<History />} />
     </Routes>
     </BrowserRouter>
 );

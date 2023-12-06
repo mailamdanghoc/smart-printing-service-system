@@ -24,7 +24,7 @@ function HomePage() {
                                 /></Link>
                         </li>
                         <li><Link to='/'>TẠO ĐƠN IN</Link></li>
-                        <li><a href="#">XEM LỊCH SỬ</a></li>
+                        <li><a href="/history">XEM LỊCH SỬ</a></li>
                         <li><a href="#">THANH TOÁN</a></li>
                         <li><a href='/login'>ĐĂNG NHẬP</a></li>
                     </ul>
