@@ -4,6 +4,12 @@ import logo_hcmut from '../images/logo_hcmut.png';
 import drive from '../images/drive.png'
 import { Outlet, Link } from "react-router-dom";
 function HomePage() {
+    const fileInput = React.useRef(null);
+
+    const handleButtonClick = () => {
+      fileInput.current.click();
+    };
+  
     return (
         <body>
             <nav>
@@ -32,7 +38,8 @@ function HomePage() {
                     <li>
                         <div class="get_file">
                             <div class="get_file_item1">
-                                <Link to = '/upload-document'><button>Chọn file</button></Link>
+                            <input type="file" ref={fileInput} style={{ display: 'none' }} />
+                                <Link to = '/upload-document'><button onClick={handleButtonClick}>Chọn file</button></Link>
                             </div>
                             <div class="get_file_item2">
                                 <a href="#"
