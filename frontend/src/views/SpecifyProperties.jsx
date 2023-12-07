@@ -6,7 +6,6 @@ import logo_hcmut from '../images/logo_hcmut.png';
 import capstone from '../images/Capstone_Project_hk231_2023_v3.png';
 import { Outlet, Link } from "react-router-dom";
 import '../modules/specifyProperties.js';
-import pdfFile from '../images/LAB-17.pdf';
 import { useLocation } from 'react-router-dom';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;

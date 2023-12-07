@@ -17,9 +17,17 @@ const printerSchema = new Schema({
 })
 const Printers = mongoose.model('printers', printerSchema,'printers')
 
+const Orders = mongoose.model('orders', new Schema({
+    user: {type: String, required: true},
+    id: {type: String, required: true},
+    status: {type: String, required: true},
+    location: {type: String, required: true}
+}))
+
 const mySchema = {
     'printers': Printers,
     'users': Users,
+    'orders': Orders,
 }
 module.exports = mySchema
 // module.exports = Printers
