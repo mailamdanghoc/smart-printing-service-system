@@ -15,8 +15,8 @@ const hardcodedPrintingLogs = [
         file_name: 'SE_chap1.pdf',
         start: '16:00:12',
         stop: '16:00:30',
-        date: new Date(2022,10,2),
-        page_number: 50,
+        date: new Date(2023,10,2),
+        page_number: 20,
         
     },
     {
@@ -26,8 +26,8 @@ const hardcodedPrintingLogs = [
         file_name: 'SE_chap2.pdf',
         start: '16:31:12',
         stop: '16:31:30',
-        date: new Date(2022,10,21),
-        page_number: 50,
+        date: new Date(2023,10,21),
+        page_number: 30,
         
     },
     {
@@ -37,8 +37,8 @@ const hardcodedPrintingLogs = [
         file_name: 'SE_chap3.pdf',
         start: '16:00:12',
         stop: '16:00:30',
-        date: new Date(2022,10,22),
-        page_number: 50,
+        date: new Date(2023,11,7),
+        page_number: 30,
         
     },
     {
@@ -48,19 +48,19 @@ const hardcodedPrintingLogs = [
         file_name: 'SE_chap4.pdf',
         start: '16:00:12',
         stop: '16:00:30',
-        date: new Date(2022,10,26),
-        page_number: 50,
+        date: new Date(2023,11,15),
+        page_number: 32,
         
     },
     {
-        id: 1,
+        id: 5,
         sid: '2110120',
         pid: 'P001',
         file_name: 'SE_chap5.pdf',
         start: '16:00:12',
         stop: '16:00:30',
-        date: new Date(2022,10,28),
-        page_number: 50,
+        date: new Date(2023,11,25),
+        page_number: 45,
         
     },
 ];
