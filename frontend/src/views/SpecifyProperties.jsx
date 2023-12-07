@@ -7,14 +7,15 @@ import capstone from '../images/Capstone_Project_hk231_2023_v3.png';
 import { Outlet, Link } from "react-router-dom";
 import '../modules/specifyProperties.js';
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export const orderData = [
   {
-    orderID: "1",
-    paymentID: "4",
-    printerID: "0xx",
+    orderID: "ABC@123",
+    paymentID: "ETWUTVHJ!@$",
+    printerID: "69",
     numberofPage: "",
     place: "",
     size: "",
@@ -24,6 +25,16 @@ export const orderData = [
     totalPage: "",
   },
 ];
+
+const submitOrder = () => {
+  axios.post('http://localhost:4000/orders', orderData[0])
+    .then(response => {
+      console.log('Order saved:', response.data);
+    })
+    .catch(error => {
+      console.error('Error saving order:', error);
+    });
+};
 
 function SpecifyProperties() {
   const location = useLocation();
@@ -97,7 +108,7 @@ function SpecifyProperties() {
     } else if (selectedSide === 'two-sided') {
       total = Math.ceil(total / 2);
     }
-    
+
     if(selectedPage === 'even' || selectedPage === 'odd') {
       total = Math.ceil(total / 2);
     } else if (selectedPage === 'all') {

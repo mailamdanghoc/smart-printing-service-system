@@ -32,18 +32,16 @@ router.post('/nowlogin', async (req, res) => {
   }
 });
 
-// router.post('/getprinters', async (req, res) => {
-//   const {id, status, label, place} = req.body
-//   printerData = {id:id, status:status, label:label, place:place}
-//   const newPrinter = new schemas.Printer(printerData); // Assuming Printer is a model for the printers collection
-
-//   try {
-//     const savedPrinter = await newPrinter.save();
-//     res.json(savedPrinter);
-//   } catch (e) {
-//       console.log(e)
-//   }
-// });
+router.post('/orders', async (req, res) => {
+  const{numberofPage, place, size, layout, pageSelection, side, totalPage} = req.body
+  const orderData = {numberofPage: numberofPage, place: place, size: size, layout: layout, pageSelection: pageSelection, side: side, totalPage: totalPage}
+  const newOrder = new schemas.orders(orderData)
+  const saveOrder = await newOrder.save()
+  if(saveOrder){
+    res.send('hehe')
+  }
+  res.end()
+});
 
 router.get('/users', async (req, res) => {
     const users = schemas.users
