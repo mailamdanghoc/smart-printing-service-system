@@ -10,12 +10,14 @@ import HomePage from './views/HomePage';
 import Login from './views/Login'
 import HomeAdmin from './views/HomeAdmin'
 import History from './views/History'
+import LoggedInHomePage from './views/LoggedInHomePage';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
     <Routes>
+      <Route path="/loggedinhomepage" element={<LoggedInHomePage />} />
       <Route path="/homeadmin" element={<HomeAdmin />} />
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<HomePage />} />

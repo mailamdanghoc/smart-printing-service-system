@@ -26,21 +26,35 @@ nav {
     padding: 20px;
 }
 
-nav div ul {
+nav .navbar ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-nav div ul li,
-a {
+nav .navbar ul li, a {
     color: #030391;
     font-size: 20px;
     font-weight: bold;
 }
 
-nav div ul li:nth-child(2) a {
+nav .navbar ul li:nth-child(2) a {
     color: #1488D8;
+}
+
+nav .navbar ul li:nth-child(5) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+nav .navbar ul li:nth-child(5) i {
+    margin-right: 10px;
 }
 
 /*------------------------------- end-nav ----------------------------*/
@@ -179,6 +193,7 @@ nav div ul li:nth-child(2) a {
     font-weight: bold;
     font-size: 15px;
     width: 90px;
+    cursor: pointer;
 }
 
 .printer_info_show .temp .info div:nth-child(7) a:nth-child(1) button {
