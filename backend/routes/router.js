@@ -9,8 +9,14 @@ router.post('/nowlogin', async (req, res) => {
     schemas.findOne({name: username})
     .then(user => {
       if (user) {
+        console.log(user.auth)
         if (user.password == password) {
-          res.json("Login success")
+          if (user.auth == "admin") {
+            res.json("ADMIN logged in")
+          }
+          else {
+            res.json("STUDENT logged in")
+          }
         }
         else {
           res.json("Incorrect password")

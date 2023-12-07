@@ -65,19 +65,18 @@ export default function ChoosePrinter() {
       <nav>
         <div className={style.navbar}>
           <ul>
-            <li>
-              <Link to='/'>
-                <img
+          <li>
+              <Link to='/loggedinhomepage'
+              ><img
                   style={{ width: '500px' }}
                   src={logo_hcmut}
                   alt="logo_hcmut"
-                />
-              </Link>
+                /></Link>
             </li>
-            <li><Link to='/'>TẠO ĐƠN IN</Link></li>
+            <li><Link to='/loggedinhomepage'>TẠO ĐƠN IN</Link></li>
             <li><a href="#">XEM LỊCH SỬ</a></li>
             <li><a href="#">THANH TOÁN</a></li>
-            <li><Link to='/login'>ĐĂNG NHẬP</Link></li>
+            <li><i className="fa-solid fa-user"></i><p>TÊN ĐĂNG NHẬP</p></li>
           </ul>
         </div>
       </nav>
