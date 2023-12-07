@@ -2,17 +2,27 @@ import React from 'react';
 import styles from '../styles/LoggedInHomePage.module.css';
 import logo_hcmut from '../images/logo_hcmut.png';
 import drive from '../images/drive.png'
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom"
 
 function LoggedInHomePage() {
     const location = useLocation()
+    const navigate = useNavigate();
     const [selectedFile, setSelectedFile] = React.useState(null);
     const fileInputRef = React.useRef();
-    
+
     const handleFileUpload = (event) => {
         setSelectedFile(event.target.files[0]);
     };
+
+    React.useEffect(() => {
+        // Check if a file is selected before navigating
+        if (selectedFile) {
+            // Navigate to the next route when a file is selected
+            navigate('/specify-properties', { state: { file: selectedFile } });
+        }
+    }, [selectedFile, navigate]);
+
     return (
         <body>
             <nav>
@@ -41,9 +51,7 @@ function LoggedInHomePage() {
                     <li>
                         <div class="get_file">
                             <div class="get_file_item1">
-                                <Link to={{ pathname: '/specify-properties', state: { file: selectedFile } }}>
-                                    <button onClick={ () => fileInputRef.current.click()}>Chọn file</button>
-                                </Link>
+                                <Link><button onClick={() => fileInputRef.current.click()}>Chọn file</button></Link>
                                 <input type="file" style={{ display: 'none' }} ref={fileInputRef} onChange={handleFileUpload} />
                             </div>
                             <div class="get_file_item2">

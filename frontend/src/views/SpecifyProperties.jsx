@@ -28,7 +28,7 @@ export const orderData = [
 
 function SpecifyProperties() {
   const location = useLocation();
-  const file = location.state ? location.state.file : null;
+  const selectedFile = location.state?.file;
 
   const [selectedPlace, setSelectedPlace] = React.useState("");
   const [selectedSize, setSelectedSize] = React.useState("");
@@ -129,7 +129,7 @@ function SpecifyProperties() {
         <div className={styles.properties}>
           <ul>
             <li>
-              <Link to='/upload-document'><button>Quay lại</button></Link>
+              <Link to='/loggedinhomepage'><button>Quay lại</button></Link>
             </li>
             <li><p>Chọn lựa vị trí in</p></li>
             <li>
@@ -199,7 +199,7 @@ function SpecifyProperties() {
           {/* <div className={styles.document}> */}
             {/* <img src={capstone} alt="document" /> */}
             <div className={styles.pdf}>
-              <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
+              <Document file={selectedFile} onLoadSuccess={onDocumentLoadSuccess}>
                 <Page pageNumber={pageNumber}></Page> 
               </Document>
             </div>
