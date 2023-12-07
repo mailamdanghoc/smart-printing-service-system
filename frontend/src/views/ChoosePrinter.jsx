@@ -18,14 +18,15 @@ export default function ChoosePrinter() {
 
   React.useEffect(() => {
     axios.get("http://localhost:4000/printers")
-    .then(printerData => setPrinterData(printerData.data))
-    .catch(e => {
-                alert("wrong info")
-                console.log(e)
-            }
-    )
+      .then(printerData => setPrinterData(printerData.data))
+      .catch(e => {
+        alert("wrong info")
+        console.log(e)
+      }
+      )
   }, []);
-  
+  // const printerData = [{id: "1", status:"busy", label: "Máy in màu Epson L121", place: "Thư viện A2"},
+  // ]
   const getStatusText = (status) => {
     if (status === "busy") {
       return "Bận";
@@ -55,7 +56,7 @@ export default function ChoosePrinter() {
       <nav>
         <div className={style.navbar}>
           <ul>
-          <li>
+            <li>
               <Link to='/loggedinhomepage'
               ><img
                   style={{ width: '500px' }}
@@ -97,13 +98,13 @@ export default function ChoosePrinter() {
 
                 <div className={style.info}>
                   <div>
-                    <p>Tình trạng: <span className={style[getStatusTextClass(selectedPrinter.status)]}>{getStatusText(selectedPrinter.status)}</span></p>
+                    <p>Tình trạng: {getStatusText(selectedPrinter.status)}</p>
                   </div>
                   <div><p>Hàng đợi: 0</p></div>
                   <div><p>Loại: In màu</p></div>
                   <div><p>Xuất xứ: Việt Nam</p></div>
-                  <div><p>Mã máy: 0x01</p></div>
-                  <div><p>Vị trí: Thư viện A2</p></div>
+                  <div><p>Mã máy: {selectedPrinter.id}</p></div>
+                  <div><p>Vị trí: {selectedPrinter.place}</p></div>
                   <div>
                     <button onClick={togglePrinterInfo}>Quay lại</button>
                     <Link to='/pay-order'><button>Xác nhận</button></Link>
