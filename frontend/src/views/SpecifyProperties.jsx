@@ -89,11 +89,31 @@ function SpecifyProperties() {
   const [totalPages, setTotalPages] = React.useState(0);
 
   const calculateTotalPages = () => {
-    let total = 0;
+    let total = numPages;
+    total = total * numberOfPages;
+
     if (selectedSide === 'one-sided') {
-      total = numberOfPages;
+      total =total;
     } else if (selectedSide === 'two-sided') {
-      total = Math.ceil(numberOfPages / 2);
+      total = Math.ceil(total / 2);
+    }
+    
+    if(selectedPage === 'even' || selectedPage === 'odd') {
+      total = Math.ceil(total / 2);
+    } else if (selectedPage === 'all') {
+      total = total;
+    }
+
+    if (numberOfSheetInPage === '1') {
+      total = total;
+    } else if(numberOfSheetInPage === '2') {
+      total = Math.ceil(total / 2);
+    } else if (numberOfSheetInPage === '4') {
+      total = Math.ceil(total / 4);
+    } else if (numberOfSheetInPage === '8') {
+      total = Math.ceil(total / 8);
+    } else if (numberOfSheetInPage === '16') {
+      total = Math.ceil(total / 16);
     }
     setTotalPages(total);
     orderData[0].totalPage = total;
@@ -101,7 +121,7 @@ function SpecifyProperties() {
 
   React.useEffect(() => {
     calculateTotalPages();
-  }, [numberOfPages, selectedSide]);
+  }, [numberOfPages, selectedSide, numberOfSheetInPage, selectedPage]);
 
   return (
     <body>
@@ -138,9 +158,9 @@ function SpecifyProperties() {
                 <option value="Thư viện BK.B1 CS2">Thư viện BK.B1 CS2</option>
               </select>
             </li>
-            <li><p>Số tờ</p></li>
-            <li><input type="text" placeholder="Nhập số tờ" value={numberOfPages}
-              onChange={handleNumberOfPagesChange} /></li>
+            <li><p>Số bản</p></li>
+            <li><input type="text" placeholder="Nhập số bản copy" value={numberOfPages}
+              onChange={handleNumberOfPagesChange}/></li>
             <li><p>Bố cục</p></li>
             <li>
               <select name="layout" id="layout" required onChange={handleLayoutChange}>

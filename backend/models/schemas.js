@@ -12,6 +12,7 @@ const Users = mongoose.model('users', userSchema)
 const printerSchema = new Schema({
     id: {type: String, required: true},
     status: {type: String, required: true},
+    queue: {type: String, required: true},
     lable: {type: String, required: true},
     place: {type: String, required: true}
 })

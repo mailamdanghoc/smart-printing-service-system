@@ -111,7 +111,7 @@ export default function ChoosePrinter() {
                   <div>
                     <p>Tình trạng: {getStatusText(selectedPrinter.status)}</p>
                   </div>
-                  <div><p>Hàng đợi: 0</p></div>
+                  <div><p>Hàng đợi: {selectedPrinter.queue}</p></div>
                   <div><p>Loại: In màu</p></div>
                   <div><p>Xuất xứ: Việt Nam</p></div>
                   <div><p>Mã máy: {selectedPrinter.id}</p></div>
