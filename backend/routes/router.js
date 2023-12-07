@@ -41,4 +41,17 @@ router.get('/users', async (req, res) => {
     }
 })
 
+router.get('/printers', async (req, res) => {
+  const printers = schemas
+  try {
+    const printerData = await printers.find(); // Assuming Printer is a model for the printers collection
+    // res.json(printers);
+    res.send(JSON.stringify(printerData));
+  }
+  catch(e) {
+    console.log(e)
+  }
+}
+)
+
 module.exports = router

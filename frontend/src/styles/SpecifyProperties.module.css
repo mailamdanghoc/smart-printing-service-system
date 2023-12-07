@@ -204,7 +204,7 @@ nav .navbar ul li:nth-child(5) i {
 }
 .container .paper .pdf{
     height: 650px;
-    overflow: auto;
+    overflow-y: auto;
 }
 /*------------------------------- end-paper ----------------------------*/
 /*------------------------------- end-container ----------------------------*/

@@ -4,6 +4,7 @@ import { Outlet, Link } from "react-router-dom";
 // import choosePrinterStage from '../modules/choosePrinterStage.js';
 import printer_icon from '../images/printer_icon.png';
 import logo_hcmut from '../images/logo_hcmut.png';
+import axios from "axios"
 // import choosePrinterStage from '../modules/choosePrinterStage.js';
 
 export default function ChoosePrinter() {
@@ -13,29 +14,18 @@ export default function ChoosePrinter() {
     setPrinterInfo(!printerInfo);
     setSelectedPrinter(printer);
   }
-  const printerData = [
-    { id: "1", status: "busy", label: "Máy in màu Epson L121" },
-    { id: "2", status: "unavailable", label: "Máy in màu Epson L121" },
-    { id: "3", status: "free", label: "Máy in màu Epson L121" },
-    { id: "4", status: "free", label: "Máy in màu Epson L121" },
-    { id: "5", status: "free", label: "Máy in màu Epson L121" },
-    { id: "6", status: "unavailable", label: "Máy in màu Epson L121" },
-    { id: "7", status: "busy", label: "Máy in màu Epson L121" },
-    { id: "8", status: "unavailable", label: "Máy in màu Epson L121" },
-    { id: "9", status: "free", label: "Máy in màu Epson L121" },
-    { id: "10", status: "free", label: "Máy in màu Epson L121" },
-    { id: "11", status: "free", label: "Máy in màu Epson L121" },
-    { id: "12", status: "unavailable", label: "Máy in màu Epson L121" },
-    { id: "13", status: "busy", label: "Máy in màu Epson L121" },
-    { id: "14", status: "unavailable", label: "Máy in màu Epson L121" },
-    { id: "15", status: "free", label: "Máy in màu Epson L121" },
-    { id: "16", status: "free", label: "Máy in màu Epson L121" },
-    { id: "17", status: "free", label: "Máy in màu Epson L121" },
-    { id: "18", status: "unavailable", label: "Máy in màu Epson L121" },
-    { id: "19", status: "busy", label: "Máy in màu Epson L121" },
-    { id: "20", status: "unavailable", label: "Máy in màu Epson L121" },
-  ];
+  const [printerData, setPrinterData] = React.useState([]);
 
+  React.useEffect(() => {
+    axios.get("http://localhost:4000/printers")
+    .then(printerData => setPrinterData(printerData.data))
+    .catch(e => {
+                alert("wrong info")
+                console.log(e)
+            }
+    )
+  }, []);
+  
   const getStatusText = (status) => {
     if (status === "busy") {
       return "Bận";
