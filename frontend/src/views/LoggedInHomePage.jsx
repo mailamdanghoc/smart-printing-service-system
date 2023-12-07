@@ -1,32 +1,29 @@
 import React from 'react';
-import '../styles/styles.css';
+import styles from '../styles/LoggedInHomePage.module.css';
 import logo_hcmut from '../images/logo_hcmut.png';
 import drive from '../images/drive.png'
 import { Outlet, Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-function HomePage() {
-    const history = useNavigate()
-    function handleloggedin() {
-        alert("Bạn chưa đăng nhập !!! Vui lòng đăng nhập")
-    }
+import  { useLocation } from "react-router-dom"
 
+function LoggedInHomePage() {
+    const location = useLocation()
     return (
         <body>
             <nav>
-                <div class="navbar">
+                <div className={styles.navbarlogged}>
                     <ul>
                         <li>
-                            <Link to='/'
+                            <Link to="/loggedinhomepage"
                             ><img
                                     style={{ width: '500px' }}
                                     src={logo_hcmut}
                                     alt="logo_hcmut"
                                 /></Link>
                         </li>
-                        <li><Link to='/'>TẠO ĐƠN IN</Link></li>
-                        <li><a href="/history">XEM LỊCH SỬ</a></li>
-                        <li><a href="#">THANH TOÁN</a></li>
-                        <li><Link to='/login'>ĐĂNG NHẬP</Link></li>
+                        <li><Link to="/loggedinhomepage">TẠO ĐƠN IN</Link></li>
+                        <li><Link to="#">XEM LỊCH SỬ</Link></li>
+                        <li><Link to="#">THANH TOÁN</Link></li>
+                        <li><i className="fa-solid fa-user"></i><p>TÊN ĐĂNG NHẬP</p></li>
                     </ul>
                 </div>
             </nav>
@@ -38,7 +35,7 @@ function HomePage() {
                     <li>
                         <div class="get_file">
                             <div class="get_file_item1">
-                                <Link onClick={handleloggedin}><button>Chọn file</button></Link>
+                                <Link to = '/upload-document'><button>Chọn file</button></Link>
                             </div>
                             <div class="get_file_item2">
                                 <a href="#"
@@ -62,4 +59,4 @@ function HomePage() {
         </body>
     );
 }
-export default HomePage;
+export default LoggedInHomePage;

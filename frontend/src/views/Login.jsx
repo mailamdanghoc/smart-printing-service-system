@@ -11,14 +11,17 @@ function Login() {
 
     async function submit(e) {
         e.preventDefault()
-        console.log(username + ' | ' + password)
         try {
             await axios.post("http://localhost:4000/nowlogin", {
                 username: username, password: password
             })
             .then(res => {
-                if (res.data == "Login success") {
+                console.log(res.data)
+                if (res.data == "ADMIN logged in") {
                     history("/homeadmin", {state: {id: username}})
+                }
+                else if (res.data == "STUDENT logged in") {
+                    history("/loggedinhomepage", {state: {id: username}})
                 }
                 else if (res.data == "Incorrect password") {
                     alert("Incorrect password")

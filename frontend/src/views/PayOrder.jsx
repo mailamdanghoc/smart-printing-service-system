@@ -11,18 +11,18 @@ function PayOrder() {
       <nav>
         <div className={styles.navbar}>
           <ul>
-            <li>
-              <Link to='/'
+          <li>
+              <Link to='/loggedinhomepage'
               ><img
                   style={{ width: '500px' }}
                   src={logo_hcmut}
                   alt="logo_hcmut"
                 /></Link>
             </li>
-            <li><Link to='/'>TẠO ĐƠN IN</Link></li>
+            <li><Link to='/loggedinhomepage'>TẠO ĐƠN IN</Link></li>
             <li><a href="#">XEM LỊCH SỬ</a></li>
             <li><a href="#">THANH TOÁN</a></li>
-            <li><Link to='/login'>ĐĂNG NHẬP</Link></li>
+            <li><i className="fa-solid fa-user"></i><p>TÊN ĐĂNG NHẬP</p></li>
           </ul>
         </div>
       </nav>
@@ -92,7 +92,7 @@ function PayOrder() {
         </div>
         <div className={styles.btnGr2}>
           <div>
-            <Link to='/'><button>Tiếp tục in đơn mới</button></Link>
+            <Link to = '/loggedinhomepage'><button>Tiếp tục in đơn mới</button></Link>
           </div>
           <div><button>Xem lịch sử in</button></div>
           <div><button>Liên hệ với chúng tôi</button></div>
