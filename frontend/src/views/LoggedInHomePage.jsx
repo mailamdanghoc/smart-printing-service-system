@@ -3,10 +3,16 @@ import styles from '../styles/LoggedInHomePage.module.css';
 import logo_hcmut from '../images/logo_hcmut.png';
 import drive from '../images/drive.png'
 import { Outlet, Link } from "react-router-dom";
-import  { useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 function LoggedInHomePage() {
     const location = useLocation()
+    const [selectedFile, setSelectedFile] = React.useState(null);
+    const fileInputRef = React.useRef();
+    
+    const handleFileUpload = (event) => {
+        setSelectedFile(event.target.files[0]);
+    };
     return (
         <body>
             <nav>
@@ -35,7 +41,10 @@ function LoggedInHomePage() {
                     <li>
                         <div class="get_file">
                             <div class="get_file_item1">
-                                <Link to = '/upload-document'><button>Chọn file</button></Link>
+                                <Link to={{ pathname: '/specify-properties', state: { file: selectedFile } }}>
+                                    <button onClick={ () => fileInputRef.current.click()}>Chọn file</button>
+                                </Link>
+                                <input type="file" style={{ display: 'none' }} ref={fileInputRef} onChange={handleFileUpload} />
                             </div>
                             <div class="get_file_item2">
                                 <a href="#"

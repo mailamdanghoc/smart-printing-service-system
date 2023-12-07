@@ -1,10 +1,15 @@
 import React from 'react';
+import { useState } from 'react';
+import { Document, Page, pdfjs } from "react-pdf";
 import styles from '../styles/SpecifyProperties.module.css';
-import printer_icon from '../images/printer_icon.png';
 import logo_hcmut from '../images/logo_hcmut.png';
 import capstone from '../images/Capstone_Project_hk231_2023_v3.png';
 import { Outlet, Link } from "react-router-dom";
 import '../modules/specifyProperties.js';
+import pdfFile from '../images/LAB-17.pdf';
+import { useLocation } from 'react-router-dom';
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export const orderData = [
   {
@@ -22,6 +27,9 @@ export const orderData = [
 ];
 
 function SpecifyProperties() {
+  const location = useLocation();
+  const file = location.state ? location.state.file : null;
+
   const [selectedPlace, setSelectedPlace] = React.useState("");
   const [selectedSize, setSelectedSize] = React.useState("");
   const [numberOfPages, setNumberOfPages] = React.useState("");
@@ -29,6 +37,21 @@ function SpecifyProperties() {
   const [selectedLayout, setSelectedLayout] = React.useState("");
   const [selectedPage, setSelectedPage] = React.useState("");
   const [selectedSide, setSelectedSide] = React.useState("");
+
+  const [numPages, setNumPages] = React.useState("");
+  const [pageNumber, setPageNumber] = useState(1);
+
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+  }
+
+  const prevPage = () => {
+    setPageNumber(pageNumber - 1 <= 1 ? 1 : pageNumber - 1);
+  }
+
+  const nextPage = () => {
+    setPageNumber(pageNumber + 1 >= numPages ? pageNumber : pageNumber + 1);
+  }
 
   const handlePlaceChange = (event) => {
     setSelectedPlace(event.target.value);
@@ -173,9 +196,13 @@ function SpecifyProperties() {
         </div>
 
         <div className={styles.paper}>
-          <div className={styles.document}>
-            <img src={capstone} alt="document" />
-          </div>
+          {/* <div className={styles.document}> */}
+            {/* <img src={capstone} alt="document" /> */}
+            <div className={styles.pdf}>
+              <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
+                <Page pageNumber={pageNumber}></Page> 
+              </Document>
+            </div>
         </div>
       </div>
     </body>

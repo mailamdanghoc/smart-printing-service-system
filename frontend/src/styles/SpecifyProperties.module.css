@@ -202,6 +202,10 @@ nav .navbar ul li:nth-child(5) i {
     align-items: center;
     padding: 20px;
 }
+.container .paper .pdf{
+    height: 650px;
+    overflow: auto;
+}
 /*------------------------------- end-paper ----------------------------*/
 /*------------------------------- end-container ----------------------------*/
 
