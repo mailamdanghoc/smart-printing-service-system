@@ -197,12 +197,12 @@ function SpecifyProperties() {
 
         <div className={styles.paper}>
           {/* <div className={styles.document}> */}
-            {/* <img src={capstone} alt="document" /> */}
-            <div className={styles.pdf}>
-              <Document file={selectedFile} onLoadSuccess={onDocumentLoadSuccess}>
-                <Page pageNumber={pageNumber}></Page> 
-              </Document>
-            </div>
+          {/* <img src={capstone} alt="document" /> */}
+          <div className={styles.pdf}>
+            <Document file={selectedFile} onLoadSuccess={onDocumentLoadSuccess}>
+              <Page pageNumber={pageNumber}></Page>
+            </Document>
+          </div>
         </div>
       </div>
     </body>

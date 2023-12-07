@@ -10,12 +10,17 @@ const userSchema = new Schema({
 const Users = mongoose.model('users', userSchema)
 
 const printerSchema = new Schema({
-    id: {type: String},
-    status: {type: String},
-    lable: {type: String},
-    place: {type: String}
+    id: {type: String, required: true},
+    status: {type: String, required: true},
+    lable: {type: String, required: true},
+    place: {type: String, required: true}
 })
 const Printers = mongoose.model('printers', printerSchema,'printers')
 
-module.exports = Printers
-module.exports = Users
+const mySchema = {
+    'printers': Printers,
+    'users': Users,
+}
+module.exports = mySchema
+// module.exports = Printers
+// module.exports = Users
