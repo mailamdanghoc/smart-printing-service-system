@@ -10,6 +10,7 @@ import axios from "axios"
 export default function ChoosePrinter() {
   const [printerInfo, setPrinterInfo] = React.useState(false);
   const [selectedPrinter, setSelectedPrinter] = React.useState(null);
+  const [filter, setFilter] = React.useState('all');
   const togglePrinterInfo = (printer) => {
     setPrinterInfo(!printerInfo);
     setSelectedPrinter(printer);
@@ -50,7 +51,11 @@ export default function ChoosePrinter() {
         return ""; // Mặc định nếu trạng thái không khớp
     }
   };
+  const handleFilterChange = (newFilter) => {
+    setFilter(newFilter);
+  };
 
+  const filteredPrinters = printerData.filter(printer => filter === 'all' || printer.status === filter);
   return (
     <React.Fragment>
       <nav>
@@ -67,7 +72,7 @@ export default function ChoosePrinter() {
             <li><Link to='/loggedinhomepage'>TẠO ĐƠN IN</Link></li>
             <li><a href="#">XEM LỊCH SỬ</a></li>
             <li><a href="#">THANH TOÁN</a></li>
-            <li><i className="fa-solid fa-user"></i><p>TÊN ĐĂNG NHẬP</p></li>
+            <li><i className="fa-solid fa-user"></i><p>{null}</p></li>
           </ul>
         </div>
       </nav>
@@ -76,8 +81,14 @@ export default function ChoosePrinter() {
         <div className={style.back_btn}>
           <Link to='/specify-properties'><button>Quay lại</button></Link>
         </div>
+        <div className={style.buttonthings}>
+          <div><button onClick={() => handleFilterChange('all')} >All</button></div>
+          <div><button onClick={() => handleFilterChange('free')}>Free</button></div>
+          <div><button onClick={() => handleFilterChange('unavailable')}>Unavailable</button></div>
+          <div><button onClick={() => handleFilterChange('busy')}>Busy</button></div>
+        </div>
         <div className={style.content}>
-          {printerData.map((printer) => (
+          {filteredPrinters.map((printer) => (
             <div className={style.item} id={printer.id}>
               <div className={style.image}>
                 <img src={printer_icon} alt="printer-img" onClick={() => togglePrinterInfo(printer)} />
@@ -100,14 +111,18 @@ export default function ChoosePrinter() {
                   <div>
                     <p>Tình trạng: {getStatusText(selectedPrinter.status)}</p>
                   </div>
-                  <div><p>Hàng đợi: 0</p></div>
+                  <div><p>Hàng đợi: {selectedPrinter.queue}</p></div>
                   <div><p>Loại: In màu</p></div>
                   <div><p>Xuất xứ: Việt Nam</p></div>
                   <div><p>Mã máy: {selectedPrinter.id}</p></div>
                   <div><p>Vị trí: {selectedPrinter.place}</p></div>
                   <div>
                     <button onClick={togglePrinterInfo}>Quay lại</button>
-                    <Link to='/pay-order'><button>Xác nhận</button></Link>
+                    {selectedPrinter.status === 'unavailable' ? (
+                      <button onClick={togglePrinterInfo}>Xác nhận</button>
+                    ) : (
+                      <Link to='/pay-order'><button>Xác nhận</button></Link>
+                    )}
                   </div>
                 </div>
               </div>

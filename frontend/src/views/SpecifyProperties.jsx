@@ -6,16 +6,16 @@ import logo_hcmut from '../images/logo_hcmut.png';
 import capstone from '../images/Capstone_Project_hk231_2023_v3.png';
 import { Outlet, Link } from "react-router-dom";
 import '../modules/specifyProperties.js';
-import pdfFile from '../images/LAB-17.pdf';
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 export const orderData = [
   {
-    orderID: "1",
-    paymentID: "4",
-    printerID: "0xx",
+    orderID: "ABC@123",
+    paymentID: "ETWUTVHJ!@$",
+    printerID: "69",
     numberofPage: "",
     place: "",
     size: "",
@@ -25,6 +25,16 @@ export const orderData = [
     totalPage: "",
   },
 ];
+
+const submitOrder = () => {
+  axios.post('http://localhost:4000/orders', orderData[0])
+    .then(response => {
+      console.log('Order saved:', response.data);
+    })
+    .catch(error => {
+      console.error('Error saving order:', error);
+    });
+};
 
 function SpecifyProperties() {
   const location = useLocation();
@@ -90,11 +100,31 @@ function SpecifyProperties() {
   const [totalPages, setTotalPages] = React.useState(0);
 
   const calculateTotalPages = () => {
-    let total = 0;
+    let total = numPages;
+    total = total * numberOfPages;
+
     if (selectedSide === 'one-sided') {
-      total = numberOfPages;
+      total =total;
     } else if (selectedSide === 'two-sided') {
-      total = Math.ceil(numberOfPages / 2);
+      total = Math.ceil(total / 2);
+    }
+
+    if(selectedPage === 'even' || selectedPage === 'odd') {
+      total = Math.ceil(total / 2);
+    } else if (selectedPage === 'all') {
+      total = total;
+    }
+
+    if (numberOfSheetInPage === '1') {
+      total = total;
+    } else if(numberOfSheetInPage === '2') {
+      total = Math.ceil(total / 2);
+    } else if (numberOfSheetInPage === '4') {
+      total = Math.ceil(total / 4);
+    } else if (numberOfSheetInPage === '8') {
+      total = Math.ceil(total / 8);
+    } else if (numberOfSheetInPage === '16') {
+      total = Math.ceil(total / 16);
     }
     setTotalPages(total);
     orderData[0].totalPage = total;
@@ -102,7 +132,7 @@ function SpecifyProperties() {
 
   React.useEffect(() => {
     calculateTotalPages();
-  }, [numberOfPages, selectedSide]);
+  }, [numberOfPages, selectedSide, numberOfSheetInPage, selectedPage]);
 
   return (
     <body>
@@ -139,9 +169,9 @@ function SpecifyProperties() {
                 <option value="Thư viện BK.B1 CS2">Thư viện BK.B1 CS2</option>
               </select>
             </li>
-            <li><p>Số tờ</p></li>
-            <li><input type="text" placeholder="Nhập số tờ" value={numberOfPages}
-              onChange={handleNumberOfPagesChange} /></li>
+            <li><p>Số bản</p></li>
+            <li><input type="text" placeholder="Nhập số bản copy" value={numberOfPages}
+              onChange={handleNumberOfPagesChange}/></li>
             <li><p>Bố cục</p></li>
             <li>
               <select name="layout" id="layout" required onChange={handleLayoutChange}>

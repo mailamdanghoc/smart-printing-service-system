@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css"
-import '../styles/History.module.css';
+import styles from '../styles/History.module.css';
 import logo_hcmut from '../images/logo_hcmut.png';
 import vi from 'date-fns/locale/vi';
 import LogTable from "../component/LogTable/logtable";
@@ -126,12 +126,12 @@ function History() {
                 </div>
             </nav>
 
-            <div className="history">
-                <div className="history-title">
+            <div className={styles.history}>
+                <div className={styles.historytitle}>
                     <h1>Lịch sử in</h1>
                 </div>
-                <div className="filter">
-                    <div className="input-container">
+                <div className={styles.filter}>
+                    <div className={styles.inputcontainer}>
                         <label htmlFor="startDate">Từ </label>
                             <DatePicker
                                 id="startDate"
@@ -145,7 +145,7 @@ function History() {
                                 readOnly={selectAllDates}
                             />
                     </div>
-                    <div className="input-container">
+                    <div className={styles.inputcontainer}>
                         <label htmlFor="endDate">Đến </label>
                             <DatePicker
                                 id="endDate"
@@ -159,7 +159,7 @@ function History() {
                                 readOnly={selectAllDates}
                             />
                     </div>
-                    <div className="input-container">
+                    <div className={styles.inputcontainer}>
                         <label htmlFor="selectAllDates">Tất cả các ngày </label>
                         <input
                             type="checkbox"

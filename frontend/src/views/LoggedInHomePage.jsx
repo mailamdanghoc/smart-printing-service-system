@@ -22,7 +22,7 @@ function LoggedInHomePage() {
             navigate('/specify-properties', { state: { file: selectedFile } });
         }
     }, [selectedFile, navigate]);
-
+    const username = location.state ? location.state.id : null;
     return (
         <body>
             <nav>
@@ -37,9 +37,9 @@ function LoggedInHomePage() {
                                 /></Link>
                         </li>
                         <li><Link to="/loggedinhomepage">TẠO ĐƠN IN</Link></li>
-                        <li><Link to="#">XEM LỊCH SỬ</Link></li>
+                        <li><Link to="/history">XEM LỊCH SỬ</Link></li>
                         <li><Link to="#">THANH TOÁN</Link></li>
-                        <li><i className="fa-solid fa-user"></i><p>TÊN ĐĂNG NHẬP</p></li>
+                        <li><i className="fa-solid fa-user"></i><p>{username}</p></li>
                     </ul>
                 </div>
             </nav>
