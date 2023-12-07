@@ -22,7 +22,7 @@ function LoggedInHomePage() {
             navigate('/specify-properties', { state: { file: selectedFile } });
         }
     }, [selectedFile, navigate]);
-    const username = location.state.id;
+    const username = location.state ? location.state.id : null;
     return (
         <body>
             <nav>

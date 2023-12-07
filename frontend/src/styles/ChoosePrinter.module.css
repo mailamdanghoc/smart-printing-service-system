@@ -80,6 +80,27 @@ nav .navbar ul li:nth-child(5) i {
     margin-top: 10px;
     cursor: pointer;
 }
+.container .buttonthings{
+    display: flex;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    /* margin: px    */
+    position: absolute;
+    top: 120px;
+    left: 120px;
+    /* flex-direction: column; */
+}
+.container .buttonthings div button {
+    margin: 5px;
+    font-family: 'Baloo Bhaijaan 2', sans-serif;
+    /* padding: 8px; */
+    background-color: #1488D8;
+    border-style: none;
+    color: #FFFFFF;
+    border-radius: 10px;
+    width: 80px;
+    cursor: pointer;
+}
 
 /*------------------------------- end-back-btn ----------------------------*/
 
