@@ -6,6 +6,7 @@ import logo_hcmut from '../images/logo_hcmut.png';
 import vi from 'date-fns/locale/vi';
 import LogTable from "../component/LogTable/logtable";
 import { Outlet, Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 const hardcodedPrintingLogs = [
     {
@@ -82,6 +83,9 @@ const filterPrintingLogs = (startDate, endDate) => {
 };
 
 function History() {
+    const location = useLocation()
+    const username = location.state ? location.state.id : null;
+
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
 
@@ -111,17 +115,17 @@ function History() {
                 <div class="navbar">
                     <ul>
                         <li>
-                            <Link to='/'
+                            <Link to='/homeadmin'
                             ><img
                                     style={{ width: '500px' }}
                                     src={logo_hcmut}
                                     alt="logo_hcmut"
                                 /></Link>
                         </li>
-                        <li><Link to='/'>TẠO ĐƠN IN</Link></li>
+                        <li><Link to='/homeadmin'>TẠO ĐƠN IN</Link></li>
                         <li><a href="#">XEM LỊCH SỬ</a></li>
                         <li><a href="#">THANH TOÁN</a></li>
-                        <li><a href='/login'>ĐĂNG NHẬP</a></li>
+                        <li><i className="fa-solid fa-user"></i><p>{username}</p></li>
                     </ul>
                 </div>
             </nav>
@@ -146,7 +150,7 @@ function History() {
                             />
                     </div>
                     <div className={styles.inputcontainer}>
-                        <label htmlFor="endDate">Đến </label>
+                        <label htmlFor="endDate" >Đến </label>
                             <DatePicker
                                 id="endDate"
                                 selected={endDate}

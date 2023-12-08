@@ -14,7 +14,7 @@ function HomeAdmin() {
                 <div className={styles.navbarlogged}>
                     <ul>
                         <li>
-                            <Link to="/loggedinhomepage"
+                            <Link to="/homeadmin"
                             ><img
                                     style={{ width: '500px' }}
                                     src={logo_hcmut}
