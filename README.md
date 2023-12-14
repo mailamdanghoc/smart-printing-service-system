@@ -1,4 +1,5 @@
 # catLovers_smartPrinting
-Update 20/11:
-- React đang bị conflict các file css với nhau.
-- FE ở trong file html thì bình thường.
+Hướng dẫn sử dụng:
+`npm install`
+Kết nối server: `cd backend` `npm start` 
+Kết nối interface cho actor: `cd frontend` `npm start`
